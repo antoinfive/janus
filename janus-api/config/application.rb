@@ -7,10 +7,12 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module JanusApi
+  POINTS = [0,1,2,3,5,8,13]
+  STORY_STATE = ["icebox", "todo", "doing", "done", "dropped"]
+  PROJECT_STATE = ["incomplete", "inactive", "complete"]
+
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
-    POINTS = [0,1,2,3,5,8,13]
-    STORY_STATE = [:icebox, :todo, :doing, :done, :dropped]
-    PROJECT_STATE = [:incomplete, :inactive, :complete]
+
   end
 end

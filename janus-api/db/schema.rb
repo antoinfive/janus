@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217205908) do
+ActiveRecord::Schema.define(version: 20160217212704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,11 +49,11 @@ ActiveRecord::Schema.define(version: 20160217205908) do
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.string   "github_link"
-    t.string   "state"
+    t.string   "state",       default: "incomplete"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
@@ -74,10 +74,11 @@ ActiveRecord::Schema.define(version: 20160217205908) do
     t.string   "description"
     t.integer  "points"
     t.integer  "project_id"
-    t.string   "state"
+    t.string   "state",           default: "icebox"
     t.datetime "due_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.datetime "completion_date"
   end
 
   add_index "stories", ["project_id"], name: "index_stories_on_project_id", using: :btree

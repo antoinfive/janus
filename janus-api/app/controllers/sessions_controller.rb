@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action: :authenticate!
 
   def create
     user = User.authenticate(user_params)
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
       }
       render json: data, status: 201
     else
-        
+
     end
   end
 

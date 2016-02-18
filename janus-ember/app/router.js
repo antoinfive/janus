@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('bookmarks');
   this.route('tags');
   this.route('snippets');
+  this.route('login');
 });
 
 export default Router;

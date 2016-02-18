@@ -9,8 +9,6 @@ class SessionsController < ApplicationController
         email: user.email
       }
       render json: data, status: 201
-    else
-
     end
   end
 

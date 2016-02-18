@@ -1,8 +1,8 @@
 puts "Starting"
 
-andrew = User.new(username: "Andrew", uid: "1", provider: "Git")
-adam = User.new(username: "Adam", uid: "2", provider: "Git")
-antoin = User.new(username: "Antoin", uid: "3", provider: "Git")
+andrew = User.new(username: "Andrew", uid: "1", provider: "Git", password: "123", password_confirmation: "123")
+adam = User.new(username: "Adam", uid: "2", provider: "Git", password: "123", password_confirmation: "123")
+antoin = User.new(username: "Antoin", uid: "3", provider: "Git", password: "123", password_confirmation: "123")
 
 puts "Users create" if andrew.save && adam.save && antoin.save
 

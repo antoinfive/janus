@@ -11,4 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
+  post "/users/signin", to: "sessions#create"
+
 end

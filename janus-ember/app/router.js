@@ -6,6 +6,12 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('user');
+  this.route('projects');
+  this.route('stories');
+  this.route('bookmarks');
+  this.route('tags');
+  this.route('snippets');
 });
 
 export default Router;

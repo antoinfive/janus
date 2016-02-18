@@ -1,4 +1,5 @@
 class Api::V1::StoriesController < ApplicationController
+
   def index
     current_project = Project.find(params[:project_id])
     render json: current_project.stories

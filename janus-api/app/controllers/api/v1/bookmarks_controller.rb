@@ -1,4 +1,5 @@
-class BookmarksController < ApplicationController
+class Api::V1::BookmarksController < ApplicationController
+  
   def index
     current_user = User.find(params[:user_id])
     render json: current_user.bookmarks

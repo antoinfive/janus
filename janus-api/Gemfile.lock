@@ -65,6 +65,7 @@ GEM
     pry-rails (0.3.4)
       pry (>= 0.9.10)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
@@ -116,9 +117,10 @@ DEPENDENCIES
   active_model_serializers
   pg
   pry-rails
+  rack-cors
   rails (= 4.2.5.1)
   rails-api
   spring
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

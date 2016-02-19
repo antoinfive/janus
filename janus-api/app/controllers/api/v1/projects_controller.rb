@@ -22,6 +22,7 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     project = Project.find(params[:id])
     project.destroy
     render nothing: true

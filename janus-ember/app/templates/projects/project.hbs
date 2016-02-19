@@ -1,5 +1,11 @@
-<h4>{{model.user.username}}'s Project: '{{model.name}}'</h4><p>- {{model.state}}</p>
-<p>{{model.description}}</p>
-<p><a href="{{model.github}}">Github</a></p>
+{{#if isEditing}}
+  {{manage-project project=model onSubmit="editProject"}}
+{{else}}
+  <h4>{{model.user.username}}'s Project: '{{model.name}}'</h4><p>- {{model.state}}</p>
+  <p>{{model.description}}</p>
+  <p><a href="{{model.github}}">Github</a></p>
+  <button type="button" {{action "edit"}}>Edit</button>
+  <button type="button" {{action "destroy"}}>Delete because Adam said so</button>
+{{/if}}
 
 {{outlet}}

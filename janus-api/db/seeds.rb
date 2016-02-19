@@ -6,18 +6,18 @@ antoin = User.new(username: "Antoin", email: "antoin@campbell.com", uid: "3", pr
 
 puts "Users create" if andrew.save && adam.save && antoin.save
 
-project_1 = Project.new(user_id: 1, name: "Uber for Cats", github_link: "www.example.com/1", description: "You know, it's like Uber, but for cats. Because the market demands it.")
-project_2 = Project.new(user_id: 1, name: "Corn Blaster", github_link: "www.example.com/3", description: "A social hub for corn-integrated agile development", state: "inactive")
+project_1 = Project.new(user_id: 1, name: "Uber for Cats", github_link: "http://www.example.com/1", description: "You know, it's like Uber, but for cats. Because the market demands it.")
+project_2 = Project.new(user_id: 1, name: "Corn Blaster", github_link: "http://www.example.com/3", description: "A social hub for corn-integrated agile development", state: "inactive")
 
 puts "Created Andrew's projects" if project_1.save && project_2.save
 
-project_3 = Project.new(user_id: 2, name: "BlockFeed", github_link: "www.example.com/4", description: "Feed your blocks.")
-project_4 = Project.new(user_id: 2, name: "Edifi", github_link: "www.example.com/6", description: "A social platform for connecting people who want to teach hard skills with people who want to learn 'em.")
+project_3 = Project.new(user_id: 2, name: "BlockFeed", github_link: "http://www.example.com/4", description: "Feed your blocks.")
+project_4 = Project.new(user_id: 2, name: "Edifi", github_link: "http://www.example.com/6", description: "A social platform for connecting people who want to teach hard skills with people who want to learn 'em.")
 
 puts "Created Adam's projects" if project_3.save && project_4.save
 
-project_5 = Project.new(user_id: 3, name: "WikiVisual", github_link: "www.example.com/2", description: "You know, it's like Wikipedia, but for visions. You know, a catalogue of your halucinations.")
-project_6 = Project.new(user_id: 3, name: "Digital Pond", github_link: "www.example.com/5", description: "Small scale website hosting platform", state: "inactive")
+project_5 = Project.new(user_id: 3, name: "WikiVisual", github_link: "http://www.example.com/2", description: "You know, it's like Wikipedia, but for visions. You know, a catalogue of your halucinations.")
+project_6 = Project.new(user_id: 3, name: "Digital Pond", github_link: "http://www.example.com/5", description: "Small scale website hosting platform", state: "inactive")
 
 puts "Created Antoin's projects" if project_5.save && project_6.save
 

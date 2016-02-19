@@ -1,6 +1,6 @@
 class Api::V1::ProjectsController < ApplicationController
   def index
-    current_user = User.find(1)
+    current_user
     render json: current_user.projects
   end
 
@@ -10,6 +10,8 @@ class Api::V1::ProjectsController < ApplicationController
 
   def create
     project = Project.create(project_params)
+    current_user.projects << project
+    current_user.save
     render json: project
   end
 
@@ -20,6 +22,7 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     project = Project.find(params[:id])
     project.destroy
     render nothing: true

@@ -3,7 +3,7 @@ import DS from 'ember-data';
 export default DS.Model.extend({
   name: DS.attr('string'),
   github_link: DS.attr('string'),
-  state: DS.attr('string'),
+  state: DS.attr('string',  {defaultValue: function() { return "incomplete"; }}),
   description: DS.attr('string'),
   user: DS.belongsTo('user'),
   bookmarks: DS.hasMany('bookmark'),

@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('user');
   this.route('projects', function() {
     this.route('project', {path: "/:project_id"});
+    this.route('new');
   });
   this.route('stories');
   this.route('bookmarks');

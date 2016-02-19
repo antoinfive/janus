@@ -1,7 +1,7 @@
 class Api::V1::BookmarksController < ApplicationController
-  
+
   def index
-    current_user = User.find(params[:user_id])
+    current_user
     render json: current_user.bookmarks
   end
 
@@ -11,6 +11,8 @@ class Api::V1::BookmarksController < ApplicationController
 
   def create
     bookmark = Bookmark.create(bookmark_params)
+    current_user.bookmarks << bookmark
+    current_user.save
     render json: bookmark
   end
 

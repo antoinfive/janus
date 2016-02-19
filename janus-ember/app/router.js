@@ -12,7 +12,10 @@ Router.map(function() {
     this.route('new');
   });
   this.route('stories');
-  this.route('bookmarks');
+  this.route('bookmarks', function() {
+    this.route('new');
+    this.route('bookmark', {path: "/:bookmark_id"});
+  });
   this.route('tags');
   this.route('snippets');
   this.route('login');

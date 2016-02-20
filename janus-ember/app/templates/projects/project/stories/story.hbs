@@ -1,0 +1,14 @@
+{{#if isEditing}}
+  {{manage-story story=model onSubmit = "editStory"}}
+{{else}}
+  <h4>{{model.name}}</h4>
+  <p>Project: {{model.project.name}}</p>
+  <p>Status: {{model.state}}</p>
+  <p>Due: {{model.due_date}}</p>
+  <p>{{model.description}}</p>
+  <p>Points: {{model.points}}</p>
+
+  <button type="button" {{action "edit"}} class="btn btn-warning">Edit</button>
+  <button type="button" {{action "destroy"}} class="btn btn-danger">Delete</button>
+  <br>
+{{/if}}

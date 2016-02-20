@@ -1,0 +1,9 @@
+<h5>Project stories</h5>
+<ul>
+  {{#each project.stories as |story|}}
+  <li>
+    {{link-to story.name "projects.project.stories.story" story}}
+  </li>
+  {{/each}}
+</ul>
+<p>{{link-to "Add a new story" "projects.project.stories.new"}}</p>

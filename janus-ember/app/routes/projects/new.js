@@ -7,8 +7,9 @@ export default Ember.Route.extend({
   actions: {
     createProject(){
      let project = this.modelFor(this.routeName);
-     project.save();
-     this.transitionTo('projects.project', project);
+     project.save().then((project)=>{
+       this.transitionTo('projects.project', project);
+     });
    }
   }
 });

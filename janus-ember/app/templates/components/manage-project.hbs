@@ -9,7 +9,27 @@
     <label for="project-description">Description</label>
     {{input value=project.description class="form-control" id="project-description"}}
   </div>
-  {{project-state state=project.state}}
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-2">
+        State:
+      </div>
+      <div class="col-xs-10">
+        <div class="col-xs-4">
+          <label for="inactive">Inactive</label>
+          {{radio-button name="inactive" value="inactive" checked=project.state}}
+        </div>
+        <div class="col-xs-4">
+          <label for="incomplete">Incomplete</label>
+          {{radio-button name="incomplete" value="incomplete" checked=project.state}}
+        </div>
+        <div class="col-xs-4">
+          <label for="complete">Complete</label>
+          {{radio-button name="complete" value="complete" checked=project.state}}
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="form-group">
     <label for="project-github">Github Link</label>
     {{input value=project.github_link class="form-control" id="project-github"}}

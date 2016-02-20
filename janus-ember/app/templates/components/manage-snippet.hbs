@@ -1,0 +1,14 @@
+<form class="form-horizontal" {{action "submit" on="submit"}}>
+  <div class="form-group">
+    <label for="snippet-code">Code</label>
+    {{textarea cols="80" rows="10" value=snippet.code class="form-control" id="snippet-code"}}
+  </div>
+  <div class="form-group">
+    {{projects-radio-buttons projects=user_projects snippet = snippet}}
+    <button type="submit" class="btn btn-default">Submit</button>
+  </div>
+</form>
+
+{{yield}}
+
+{{yield}}

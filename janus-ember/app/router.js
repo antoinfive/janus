@@ -18,7 +18,10 @@ Router.map(function() {
   });
   this.route('bookmarks');
   this.route('tags');
-  this.route('snippets');
+  this.route('snippets', function() {
+    this.route('snippet', {path: "/:snippet_id"});
+    this.route('new');
+  });
   this.route('login');
 });
 

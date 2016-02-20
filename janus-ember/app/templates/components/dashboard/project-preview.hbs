@@ -1,0 +1,7 @@
+<div class="well">
+  <p class="lead">{{model.user.username}}'s Project: '{{project.name}}'</p><p>- {{project.state}}</p>
+  <p>{{project.description}}</p>
+  <p><a href="{{model.github}}">Github</a></p>
+  {{link-to 'Go To Project' "projects.project" project.id}}
+</div>
+{{yield}}

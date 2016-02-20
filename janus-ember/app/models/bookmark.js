@@ -4,7 +4,7 @@ export default DS.Model.extend({
   link: DS.attr('string'),
   title: DS.attr('string'),
   user: DS.belongsTo('user'),
-  projects: DS.hasMany('project'),
+  projects: DS.hasMany('project', {async: true}),
   tags: DS.hasMany('tag'),
   bookmarkLink: function(){
     if (this.get("link").includes("http://")){

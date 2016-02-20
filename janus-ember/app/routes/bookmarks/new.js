@@ -7,8 +7,9 @@ export default Ember.Route.extend({
   actions: {
     createBookmark(){
       let bookmark = this.modelFor(this.routeName);
-      bookmark.save();
-      this.transitionTo('bookmarks.bookmark', bookmark);
+      bookmark.save().then((savedBookmark) => {
+        this.transitionTo('bookmarks.bookmark', savedBookmark);
+      });
     }
   }
 });

@@ -4,6 +4,6 @@
   <p><a href="{{model.bookmarkLink}}">{{model.title}}</a></p>
   <button type="button" {{action "edit"}}>Edit</button>
   <button type="button" {{action "destroy"}}>Delete Resource</button>
+  {{bookmark-project bookmark=model}}
 {{/if}}
-
 {{outlet}}

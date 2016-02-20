@@ -1,0 +1,6 @@
+<h4>Associated Projects:</h4>
+{{#each bookmark.projects as |project|}}
+  {{link-to project.name "projects.project" project.id}}
+{{/each}}
+
+{{yield}}

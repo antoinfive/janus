@@ -16,7 +16,11 @@ Router.map(function() {
       });
     });
   });
-  this.route('bookmarks');
+  this.route('stories');
+  this.route('bookmarks', function() {
+    this.route('new');
+    this.route('bookmark', {path: "/:bookmark_id"});
+  });
   this.route('tags');
   this.route('snippets', function() {
     this.route('snippet', {path: "/:snippet_id"});

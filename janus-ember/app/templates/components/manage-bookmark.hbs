@@ -1,0 +1,13 @@
+{{yield}}
+
+<form class="form-horizontal" {{action "submit" on="submit"}}>
+  <div class="form-group">
+    <label for="bookmark-name">Title</label>
+    {{input value=bookmark.title class="form-control" id="bookmark-title"}}
+  </div>
+  <div class="form-group">
+    <label for="bookmark-link">Link</label>
+    {{input value=bookmark.link class="form-control" id="bookmark-link"}}
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

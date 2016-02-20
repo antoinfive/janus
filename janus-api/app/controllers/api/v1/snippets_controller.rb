@@ -1,6 +1,7 @@
-class SnippetsController < ApplicationController
+class Api::V1::SnippetsController < ApplicationController
+  skip_before_action :authenticate!
+
   def index
-    current_user = User.find(params[:user_id])
     render json: current_user.snippets
   end
 
@@ -10,6 +11,8 @@ class SnippetsController < ApplicationController
 
   def create
     snippet = Snippet.create(snippet_params)
+    current_user.snippets << snippet
+    current_user.save
     render json: snippet
   end
 
@@ -21,8 +24,9 @@ class SnippetsController < ApplicationController
 
   def destroy
     snippet = Snippet.find(params[:id])
+    project = snippet.project
     snippet.destroy
-    render nothing: true
+    render json: project
   end
 
   private

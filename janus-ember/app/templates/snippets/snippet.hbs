@@ -1,0 +1,8 @@
+{{#if isEditing}}
+  {{manage-snippet snippet = model.snippet user_projects = model.projects onSubmit="editSnippet"}}
+{{else}}
+  {{snippet-preview snippet = model.snippet full=true}}
+  <button type="button" name="button" class="btn btn-default" {{action "edit"}}>Edit</button>
+  <button type="button" name="button" class="btn btn-default" {{action "destroy"}}>Delete</button>
+{{/if}}
+{{outlet}}

@@ -1,0 +1,15 @@
+<div class="well">
+  {{#if full}}
+    {{snippet.code}}
+    <ul class = "list-inline">
+      <li>Project: {{link-to snippet.project.name "projects.project" snippet.project}}</li>
+    </ul>
+  {{else}}
+    {{snippet.codePreview}}
+    <ul class = "list-inline">
+      <li> {{link-to "read more" "snippets.snippet" snippet.id}} </li>
+      <li>Project: {{link-to snippet.project.name "projects.project" snippet.project}}</li>
+    </ul>
+  {{/if}}
+</div>
+{{yield}}

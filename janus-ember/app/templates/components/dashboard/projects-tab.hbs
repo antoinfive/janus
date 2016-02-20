@@ -1,0 +1,8 @@
+<div class="row">
+  {{#each projects as |project|}}
+    <div class="col-xs-3">
+      {{project-preview project=project}}
+    </div>
+  {{/each}}
+</div>
+{{yield}}

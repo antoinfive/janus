@@ -19,6 +19,7 @@ Router.map(function() {
     this.route('new');
   });
   this.route('login');
+  this.route('dashboard');
 });
 
 export default Router;

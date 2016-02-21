@@ -27,7 +27,9 @@ Router.map(function() {
     this.route('new');
   });
   this.route('login');
-  this.route('dashboard');
+  this.route('dashboard', function() {
+    this.route('project', {path: "/:project_id"});
+  });
 });
 
 export default Router;

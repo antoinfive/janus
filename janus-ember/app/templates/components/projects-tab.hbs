@@ -1,0 +1,13 @@
+<div class="bs-component">
+  <div class="list-group">
+    <div class="list-group-item active">
+      <strong>Projects</strong>
+    </div>
+    {{#each projects as |project|}}
+      <div class="list-group-item">
+        {{project-preview project=project}}
+      </div>
+    {{/each}}
+  </div>
+</div>
+{{yield}}

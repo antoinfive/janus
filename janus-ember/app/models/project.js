@@ -14,5 +14,17 @@ export default DS.Model.extend({
     } else {
       return "http://".concat(this.get("github_link"));
     }
-  }.property('github_link')
+  }.property('github_link'),
+  progress: function(){
+    var total = 0;
+    var complete = 0;
+    this.get("stories").forEach((story)=>{
+      total += story.get('points');
+      if(story.state === "done"){
+        complete += story.get('points');
+      }
+    });
+    complete = 6;
+    return Math.round(complete / total * 100);
+  }.property('stories')
 });

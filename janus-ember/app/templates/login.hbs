@@ -1,12 +1,22 @@
-<h2>Login</h2>
 
-<form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Email</label>
-  {{input id='identification' placeholder='Enter Email' value=identification type="email"}}
-  <label for="password">Password</label>
-  {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  <button type="submit">Login</button>
-  {{#if errorMessage}}
-    <p>{{errorMessage}}</p>
-  {{/if}}
-</form>
+
+<div class="col-xs-6">
+  <h2>Login</h2>
+  <div class="well bs-component">
+
+    <form {{action 'authenticate' on='submit'}} class="form-horizontal">
+        <label for="identification">Email</label>
+        {{input id='identification' placeholder='Enter Email' value=identification type="email" class="form-control"}}
+        <label for="password">Password</label>
+        {{input id='password' placeholder='Enter Password' type='password' value=password class="form-control"}}
+        <div class="form-group">
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-default">Login</button>
+            {{#if errorMessage}}
+              <p>{{errorMessage}}</p>
+            {{/if}}
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

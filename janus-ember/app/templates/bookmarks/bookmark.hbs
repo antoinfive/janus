@@ -1,9 +1,9 @@
 {{#if isEditing}}
-  {{manage-bookmark bookmark=model onSubmit="editBookmark"}}
+  {{manage-bookmark bookmark=model onSubmit="editBookmark" onNewTag="addTag"}}
 {{else}}
   <p><a href="{{model.bookmarkLink}}">{{model.title}}</a></p>
-  <button type="button" {{action "edit"}}>Edit</button>
-  <button type="button" {{action "destroy"}}>Delete Resource</button>
+  <button type="button" {{action "edit"}} class="btn btn-default">Edit</button>
+  <button type="button" {{action "destroy"}} class="btn btn-default">Delete Resource</button>
   {{bookmark-project bookmark=model}}
 {{/if}}
 {{outlet}}

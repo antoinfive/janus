@@ -1,7 +1,6 @@
 class Api::V1::BookmarksController < ApplicationController
   def index
-    current_user
-    render json: current_user.bookmarks
+    render json: current_user.all_bookmarks
   end
 
   def show

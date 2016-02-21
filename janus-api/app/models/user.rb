@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_secure_password
   before_save :verify_auth_token
 
+  def all_bookmarks
+    self.projects.map{|project| project.bookmarks}.concat(self.bookmarks).flatten
+  end
 
   def self.authenticate(credentials)
     user = self.find_by(email: credentials[:email])

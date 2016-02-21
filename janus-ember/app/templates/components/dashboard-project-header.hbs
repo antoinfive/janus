@@ -1,0 +1,23 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-9">
+        <div class="well well-sm">
+          <h3 class="panel-title text-center">{{project.user.username}}'s Project: '{{project.name}}'</h3>
+        </div>
+      </div>
+      <div class="col-xs-3">
+        <div class="well well-sm">
+          <strong class="project-status text-center">{{project.state}}</strong> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>{{project.description}}</p>
+    <p><a href="{{project.github}}">Github</a></p>
+  </div>
+  {{project-progress project=project}}
+  {{link-to "Project Details" "projects.project" project.id class="btn btn-primary"}}
+</div>
+{{yield}}

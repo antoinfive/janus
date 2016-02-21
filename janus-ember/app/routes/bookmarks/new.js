@@ -1,15 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function(){
-    return this.store.createRecord('bookmark');
-  },
+  model (){
+    return Ember.RSVP.hash({
+      bookmark: this.store.createRecord('bookmark'),
+      projects: this.store.findAll('project')
+  });
+},
   actions: {
     createBookmark(){
-      let bookmark = this.modelFor(this.routeName);
-      bookmark.save().then((savedBookmark) => {
-        savedBookmark.get('tags').invoke('save');
-        this.transitionTo('bookmarks.bookmark', savedBookmark);
+      let bookmark = this.modelFor(this.routeName).bookmark;
+      let project_ids = [];
+      bookmark.get('projects').forEach((project)=>{
+        project_ids.push(project.id);
+      });
+      bookmark.set("jankiness", project_ids.toString());
+      debugger;
+      bookmark.save().then((bookmark) => {
+        bookmark.get('tags').invoke('save');
+        this.transitionTo('bookmarks.bookmark', bookmark.id);
       });
     }
   }

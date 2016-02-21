@@ -9,11 +9,15 @@
     <label for="bookmark-link">Link</label>
     {{input value=bookmark.link class="form-control" id="bookmark-link"}}
   </div>
+
   <button type="button" name="button" {{action "increaseTag"}} class="btn btn-default">Add a new tag</button>
   {{#each bookmark.tags as |tag|}}
     <div class="form-group">
       {{input value=tag.name class="form-control" placeholder="Tag name"}}
     </div>
   {{/each}}
+
+  {{multiselect-checkboxes options=projects selection=bookmark.projects labelProperty="name"}}
+
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

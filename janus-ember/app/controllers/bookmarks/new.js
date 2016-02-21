@@ -2,10 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
+
     addTag(){
-      let model = this.get('model');
+
+      let bookmark = this.get('model').bookmark;
+      debugger;
       let tag = this.store.createRecord('tag');
-      model.get('tags').addObject(tag);
+      bookmark.get('tags').addObject(tag);
     }
   }
 });

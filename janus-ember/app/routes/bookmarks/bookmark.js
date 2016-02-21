@@ -10,6 +10,7 @@ export default Ember.Route.extend({
       let bookmark = this.modelFor(this.routeName);
       bookmark.destroyRecord();
       this.transitionTo('bookmarks');
-    }
+    },
+
   }
 });

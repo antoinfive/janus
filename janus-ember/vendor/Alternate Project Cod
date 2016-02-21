@@ -1,0 +1,36 @@
+<!-- <div class="row"> -->
+  <!-- <div class="col-lg-6">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <strong>Projects</strong>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          {{#each projects as |project|}}
+            <div class="col-xs-6">
+              {{project-preview project=project}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- <div class="col-lg-6"> -->
+
+  <!-- </div> -->
+  <!-- <div class="col-lg-6">
+    <ul class="nav nav-tabs">
+      {{#each projects as |project|}}
+        <li class=""><a href="#{{project.name}}" data-toggle="tab" aria-expanded="true">{{project.name}}</a></li>
+      {{/each}}
+    </ul>
+    <div id="myTabContent" class="tab-content">
+      {{#each projects as |project|}}
+        <div class="tab-pane fade active in" id="{{project.name}}">
+          <strong>{{project.user.username}}'s Project: '{{project.name}}'</strong><p>- {{project.state}}</p>
+          {{link-to 'Go To Project' "projects.project" project.id}}
+        </div>
+      {{/each}}
+    </div>
+  </div> -->
+<!-- </div> -->

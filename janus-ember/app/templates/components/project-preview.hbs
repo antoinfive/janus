@@ -1,0 +1,12 @@
+
+<div class ="row">
+  <div class="col-xs-8">
+      <strong>{{project.name}}</strong>
+  </div>
+  <div class="col-xs-4">
+    <p class="inline">- {{project.state}}</p>
+  </div>
+</div>
+{{project-progress project=project}}
+{{link-to 'Go To Project' "dashboard.project" project.id}}
+{{yield}}

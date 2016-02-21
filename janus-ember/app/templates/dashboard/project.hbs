@@ -1,0 +1,22 @@
+<div class="panel panel-primary">
+  <div class="panel-header">
+    <div class="row">
+      <div class="col-xs-9">
+        <h4>{{model.user.username}}'s Project: '{{model.name}}'</h4>
+      </div>
+      <div class="col-xs-3">
+        <p>- {{model.state}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>{{model.description}}</p>
+    <p><a href="{{model.github}}">Github</a></p>
+  </div>
+  {{project-progress project=project}}
+  {{link-to "Project Details" "projects.project" model.id class="btn btn-primary"}}
+  {{outlet}}
+</div>
+
+
+{{outlet}}

@@ -10,9 +10,9 @@ export default Ember.Route.extend({
   actions: {
     createBookmark(){
       let bookmark = this.modelFor(this.routeName).bookmark;
-      debugger;
-      bookmark.save();
-
+      bookmark.save().then((newBookmark)=>{
+        newBookmark.get('tags').invoke('save');
+      });
     }
   }
 });

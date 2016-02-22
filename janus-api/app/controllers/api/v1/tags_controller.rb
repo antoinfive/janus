@@ -8,8 +8,8 @@ class Api::V1::TagsController < ApplicationController
   end
 
   def create
-    binding.pry
-    tag = Tag.create(tag_params)
+    tag = Tag.create(name: tag_params[:name])
+    tag.bookmarks << ids_to_bookmarks if tag_params[:bookmarks].present?
     render json: tag
   end
 
@@ -27,6 +27,10 @@ class Api::V1::TagsController < ApplicationController
 
   private
   def tag_params
-    params.require(:tag).permit(:name)
+    params.require(:tag).permit(:name, bookmarks: [])
+  end
+
+  def ids_to_bookmarks
+    tag_params[:bookmarks].map{|id| Bookmark.find(id.to_i)}
   end
 end

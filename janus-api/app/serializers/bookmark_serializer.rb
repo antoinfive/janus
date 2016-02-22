@@ -1,3 +1,6 @@
 class BookmarkSerializer < ActiveModel::Serializer
-  attributes :id, :link, :title, :jankiness, :project_ids, :jankiness_tags, :tag_ids
+  embed :ids, include: true
+  attributes :id, :link, :title
+  has_many :projects, each_serializer: ProjectNoAssociationsSerializer
+  has_many :tags
 end

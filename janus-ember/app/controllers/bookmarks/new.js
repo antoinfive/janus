@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
     addTag(){
       let bookmark = this.get('model').bookmark;
       let tag = this.store.createRecord('tag');
-      debugger;
       bookmark.get('tags').addObject(tag);
     }
   }

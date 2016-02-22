@@ -1,8 +1,10 @@
 class Api::V1::BookmarksController < ApplicationController
+  # skip_before_action :authenticate!
+
   def index
-    binding.pry
     current_user
     render json: current_user.bookmarks
+    # render json: Bookmark.all
   end
 
   def show
@@ -10,13 +12,10 @@ class Api::V1::BookmarksController < ApplicationController
   end
 
   def create
-    binding.pry
-    bookmark = Bookmark.create(bookmark_params)
-    bookmark.projects << jank_to_projects if params[:jankiness].present?
-    bookmark.tags << jank_to_tags if params[:jankiness_tags].present?
+    bookmark = Bookmark.create(link: bookmark_params[:link], title: bookmark_params[:title])
+    bookmark.projects << ids_to_projects if bookmark_params[:projects].present?
     current_user.bookmarks << bookmark
     current_user.save
-    binding.pry
     render json: bookmark
   end
 
@@ -34,22 +33,26 @@ class Api::V1::BookmarksController < ApplicationController
 
   private
   def bookmark_params
-    params.require(:bookmark).permit(:link, :title, :user_id, :jankiness, :jankiness_tags)
+    params.require(:bookmark).permit(:link, :title, :projects => [])
   end
 
-  def jank_to_numbers
-    bookmark_params[:jankiness].split(",").map{|num| num.to_i}
+  def ids_to_projects
+    bookmark_params[:projects].map{|id| Project.find(id.to_i)}
   end
-
-  def tag_jank_to_numbers
-    bookmark_params[:jankiness_tags].split(",").map{|num| num.to_i}
-  end
-
-  def jank_to_projects
-    jank_to_numbers.map{|id| Project.find(id)}
-  end
-
-  def jank_to_tags
-    tag_jank_to_numbers.map{|id| Project.find(id)}
-  end
+  #
+  # def jank_to_numbers
+  #   bookmark_params[:jankiness].split(",").map{|num| num.to_i}
+  # end
+  #
+  # def tag_jank_to_numbers
+  #   bookmark_params[:jankiness_tags].split(",").map{|num| num.to_i}
+  # end
+  #
+  # def jank_to_projects
+  #   jank_to_numbers.map{|id| Project.find(id)}
+  # end
+  #
+  # def jank_to_tags
+  #   tag_jank_to_numbers.map{|id| Project.find(id)}
+  # end
 end

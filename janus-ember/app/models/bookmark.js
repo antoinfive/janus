@@ -6,8 +6,8 @@ export default DS.Model.extend({
   jankiness: DS.attr('string'),
   jankiness_tags: DS.attr('string'),
   user: DS.belongsTo('user'),
-  projects: DS.hasMany('project', {async: true, polymorphic: true}),
-  tags: DS.hasMany('tag', {async: true}),
+  projects: DS.hasMany('project'),
+  tags: DS.hasMany('tag'),
   bookmarkLink: function(){
     if (this.get("link").includes("http://")){
       return this.get("link");

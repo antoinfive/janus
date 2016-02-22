@@ -1,7 +1,10 @@
 class Api::V1::ProjectsController < ApplicationController
+  # skip_before_action :authenticate!
+
   def index
     current_user
-    render json: current_user.projects
+    render json: current_user.projects, each_serializer: ProjectSerializer
+    # render json: Project.all
   end
 
   def show

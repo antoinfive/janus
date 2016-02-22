@@ -4,7 +4,7 @@
   <p><a href="{{model.bookmarkLink}}">{{model.title}}</a></p>
   <button type="button" {{action "edit"}} class="btn btn-default">Edit</button>
   <button type="button" {{action "destroy"}} class="btn btn-default">Delete Resource</button>
-  {{bookmark-project bookmark=model}}
-  {{bookmark-tag bookmark=model}}
+  {{bookmark-project projects=model.projects}}
+  {{bookmark-tag tags=model.tags}}
 {{/if}}
 {{outlet}}

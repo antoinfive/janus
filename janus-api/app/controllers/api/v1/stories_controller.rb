@@ -1,7 +1,6 @@
 class Api::V1::StoriesController < ApplicationController
 
   def index
-    current_project
     render json: current_project.stories
   end
 

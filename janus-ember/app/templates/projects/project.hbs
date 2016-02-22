@@ -1,16 +1,20 @@
 {{#if isEditing}}
   {{manage-project project=model onSubmit="editProject"}}
 {{else}}
-  <h4>{{model.user.username}}'s Project: '{{model.name}}'</h4><p>- {{model.state}}</p>
-  <p>{{model.description}}</p>
-  <p><a href="{{model.github}}">Github</a></p>
+  {{dashboard-project-header project=model}}
+  <div class="row">
+    <div class="col-lg-6">
+      <button type="button" class="btn btn-lg btn-warning full-width"{{action "edit"}}>Edit</button>
+    </div>
+    <div class="col-lg-6">
+      <button type="button" class="btn btn-lg btn-danger full-width"{{action "destroy"}}>Delete</button>
+    </div>
+  </div>
+
 
   {{project-stories project=model}}
   {{outlet}}
 
-  <button type="button" {{action "edit"}}>Edit</button>
-  <button type="button" {{action "destroy"}}>Delete</button>
+
 
 {{/if}}
-
-

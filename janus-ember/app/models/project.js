@@ -20,11 +20,25 @@ export default DS.Model.extend({
     var complete = 0;
     this.get("stories").forEach((story)=>{
       total += story.get('points');
-      if(story.state === "done"){
+      if(story.get('state') === "done"){
         complete += story.get('points');
       }
     });
-    complete = 6;
     return Math.round(complete / total * 100);
-  }.property('stories')
+  }.property('stories.@each.state'),
+  icebox: function(){
+    return this.get("stories").map((story)=>{if (story.get('state') === "icebox"){return story;}}).filter(function(val) { return val !== undefined; });
+  }.property('stories.@each.state'),
+  todo: function(){
+    return this.get("stories").map((story)=>{if (story.get('state') === "todo"){return story;}}).filter(function(val) { return val !== undefined; });
+  }.property('stories.@each.state'),
+  doing: function(){
+    return this.get("stories").map((story)=>{if (story.get('state') === "doing"){return story;}}).filter(function(val) { return val !== undefined; });
+  }.property('stories.@each.state'),
+  done: function(){
+    return this.get("stories").map((story)=>{if (story.get('state') === "done"){return story;}}).filter(function(val) { return val !== undefined; });
+  }.property('stories.@each.state'),
+  dropped: function(){
+    return this.get("stories").map((story)=>{if (story.get('state') === "dropped"){return story;}}).filter(function(val) { return val !== undefined; });
+  }.property('stories.@each.state')
 });

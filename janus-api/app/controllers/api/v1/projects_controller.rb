@@ -1,6 +1,5 @@
 class Api::V1::ProjectsController < ApplicationController
   def index
-    current_user
     render json: current_user.projects
   end
 

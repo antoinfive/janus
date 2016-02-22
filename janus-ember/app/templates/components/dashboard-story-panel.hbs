@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong>{{storyType}}</strong>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      {{#each stories as |story|}}
+        {{#draggable-item content=story.id}}
+          <li class="list-group-item">
+            {{story.name}}
+            <div class="row">
+              <div class="col-xs-6">
+                {{link-to "See Story" "projects.project.stories.story" story class="btn btn-xs btn-primary"}}
+              </div>
+              <div class="col-xs-6">
+                <button type="button" name="button" class="btn btn-xs btn-danger">Drop</button>
+              </div>
+            </div>
+          </li>
+        {{/draggable-item}}
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+{{yield}}

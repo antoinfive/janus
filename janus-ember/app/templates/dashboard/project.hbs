@@ -1,21 +1,25 @@
-<div class="panel panel-primary">
-  <div class="panel-header">
-    <div class="row">
-      <div class="col-xs-9">
-        <h4>{{model.user.username}}'s Project: '{{model.name}}'</h4>
-      </div>
-      <div class="col-xs-3">
-        <p>- {{model.state}}</p>
-      </div>
-    </div>
+{{dashboard-project-header project=model}}
+<div class="row">
+  <div class="col-lg-3">
+    {{#draggable-dropzone dropped="changeState" stateColumn = "icebox"}}
+      {{dashboard-story-panel storyType="Icebox" stories=model.icebox}}
+    {{/draggable-dropzone}}
   </div>
-  <div class="panel-body">
-    <p>{{model.description}}</p>
-    <p><a href="{{model.github}}">Github</a></p>
+  <div class="col-lg-3">
+    {{#draggable-dropzone dropped="changeState" stateColumn = "todo"}}
+      {{dashboard-story-panel storyType="Todo" stories=model.todo}}
+    {{/draggable-dropzone}}
   </div>
-  {{project-progress project=project}}
-  {{link-to "Project Details" "projects.project" model.id class="btn btn-primary"}}
-  {{outlet}}
+  <div class="col-lg-3">
+    {{#draggable-dropzone dropped="changeState" stateColumn = "doing"}}
+      {{dashboard-story-panel storyType="Doing" stories=model.doing}}
+    {{/draggable-dropzone}}
+  </div>
+  <div class="col-lg-3">
+    {{#draggable-dropzone dropped="changeState" stateColumn = "done"}}
+      {{dashboard-story-panel storyType="Done" stories=model.done}}
+    {{/draggable-dropzone}}
+  </div>
 </div>
 
 

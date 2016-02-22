@@ -1,4 +1,5 @@
 class Api::V1::BookmarksController < ApplicationController
+  skip_before_action :authenticate!
   def index
     current_user
     render json: current_user.bookmarks
@@ -9,10 +10,11 @@ class Api::V1::BookmarksController < ApplicationController
   end
 
   def create
+    binding.pry
     bookmark = Bookmark.create(bookmark_params)
-    bookmark.projects << jank_to_projects
-    current_user.bookmarks << bookmark
-    current_user.save
+    # bookmark.projects << jank_to_projects
+    # current_user.bookmarks << bookmark
+    # current_user.save
     render json: bookmark
   end
 

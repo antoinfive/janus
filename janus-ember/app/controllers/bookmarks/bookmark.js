@@ -9,6 +9,11 @@ export default Ember.Controller.extend({
     editBookmark: function(){
       this.toggleProperty('isEditing');
       return true;
+    },
+    addTag: function(){
+      let model = this.get('model');
+      let tag = this.store.createRecord('tag');
+      model.get('tags').addObject(tag);
     }
   }
 });

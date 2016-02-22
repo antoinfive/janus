@@ -9,6 +9,7 @@ class Api::V1::BookmarksController < ApplicationController
 
   def create
     bookmark = Bookmark.create(bookmark_params)
+    bookmark.projects << jank_to_projects
     current_user.bookmarks << bookmark
     current_user.save
     render json: bookmark
@@ -28,6 +29,14 @@ class Api::V1::BookmarksController < ApplicationController
 
   private
   def bookmark_params
-    params.require(:bookmark).permit(:link, :title, :user_id)
+    params.require(:bookmark).permit(:link, :title, :user_id, :jankiness)
+  end
+
+  def jank_to_numbers
+    bookmark_params[:jankiness].split(",").map{|num| num.to_i}
+  end
+
+  def jank_to_projects
+    jank_to_numbers.map{|id| Project.find(id)}
   end
 end

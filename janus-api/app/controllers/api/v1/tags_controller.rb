@@ -8,6 +8,7 @@ class Api::V1::TagsController < ApplicationController
   end
 
   def create
+    binding.pry
     tag = Tag.create(tag_params)
     render json: tag
   end

@@ -1,16 +1,24 @@
 {{dashboard-project-header project=model}}
 <div class="row">
   <div class="col-lg-3">
-    {{dashboard-story-panel storyType="Icebox" stories=model.icebox}}
+    {{#draggable-dropzone dropped="changeState" stateColumn = "icebox"}}
+      {{dashboard-story-panel storyType="Icebox" stories=model.icebox}}
+    {{/draggable-dropzone}}
   </div>
   <div class="col-lg-3">
-    {{dashboard-story-panel storyType="To-Do" stories=model.todo}}
+    {{#draggable-dropzone dropped="changeState" stateColumn = "todo"}}
+      {{dashboard-story-panel storyType="Todo" stories=model.todo}}
+    {{/draggable-dropzone}}
   </div>
   <div class="col-lg-3">
-    {{dashboard-story-panel storyType="Doing" stories=model.doing}}
+    {{#draggable-dropzone dropped="changeState" stateColumn = "doing"}}
+      {{dashboard-story-panel storyType="Doing" stories=model.doing}}
+    {{/draggable-dropzone}}
   </div>
   <div class="col-lg-3">
-    {{dashboard-story-panel storyType="Done" stories=model.done}}
+    {{#draggable-dropzone dropped="changeState" stateColumn = "done"}}
+      {{dashboard-story-panel storyType="Done" stories=model.done}}
+    {{/draggable-dropzone}}
   </div>
 </div>
 

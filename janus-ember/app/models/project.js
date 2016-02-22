@@ -25,20 +25,20 @@ export default DS.Model.extend({
       }
     });
     return Math.round(complete / total * 100);
-  }.property('stories'),
+  }.property('stories.@each.state'),
   icebox: function(){
     return this.get("stories").map((story)=>{if (story.get('state') === "icebox"){return story;}}).filter(function(val) { return val !== undefined; });
-  }.property('stories'),
+  }.property('stories.@each.state'),
   todo: function(){
     return this.get("stories").map((story)=>{if (story.get('state') === "todo"){return story;}}).filter(function(val) { return val !== undefined; });
-  }.property('stories'),
+  }.property('stories.@each.state'),
   doing: function(){
     return this.get("stories").map((story)=>{if (story.get('state') === "doing"){return story;}}).filter(function(val) { return val !== undefined; });
-  }.property('stories'),
+  }.property('stories.@each.state'),
   done: function(){
     return this.get("stories").map((story)=>{if (story.get('state') === "done"){return story;}}).filter(function(val) { return val !== undefined; });
-  }.property('stories'),
+  }.property('stories.@each.state'),
   dropped: function(){
     return this.get("stories").map((story)=>{if (story.get('state') === "dropped"){return story;}}).filter(function(val) { return val !== undefined; });
-  }.property('stories')
+  }.property('stories.@each.state')
 });
